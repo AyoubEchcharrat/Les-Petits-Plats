@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+/* -------------  général ------------- */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    font-family: 'Lato', sans-serif;
+    width: 90%;
+}
+
+#logo-img{
+    width: 400px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* ------------- FIN général ------------- */
+
+/* ------------- search section ------------- */
+
+.searchbar-container{
+    position: relative;
+}
+
+#searchbar {
+    background-color: #ddd;
+    width: 100%;
+    padding: 33px;
+    border-radius: 7px;
+}
+
+#searchbar::placeholder {
+    color:grey
+}
+
+#search-icon {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 40px;
+}
+
+.filtres-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.filtre {
+    margin-right: 10px;
+    position: relative;
+}
+
+.filtre-ingredient,.filtre-appareil,.filtre-ustensile {
+    padding: 15px 45px 15px 20px;
+    border-radius: 7px;
+    color:white
+}
+.filtre-ingredient{
+    background-color: #3282F7;
+}
+.filtre-appareil{
+    background-color: #68D9A4;
+}
+.filtre-ustensile{
+    background-color: #ED6454;
+}
+
+#chevron-icon-filter{
+    position: absolute;
+    right: 14px;
+    top: 18px;
+}
+
+/* ------------- FIN search ------------- */
+
+#displayRecipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button.card-accessibilty {
+    width: 30%;
+    height: 360px;
+    margin-bottom: 60px;
+}
+
+.card-style {
+    background-color: #ccc;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 6px;
+}
+
+.card-text-container {
+    height: 50%;
+    width: 100%;
+    background-color: #eee;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.card-main-text,.card-sub-text {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.card-ingredients-container {
+    width: 49%;
+}
+
+.card-Ingredient-Grouped {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-ingredient-name {
+    font-weight: 700;
+}
+
+.card-descr {
+    width: 44%;
+    font-size: 13px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    height: 100%;
+    margin-right: 15px;
+}
+
+.card-title {
+    font-weight: 600;
+    max-width: 75%;
+    height: 30px;
+}
+
+.card-time{
+    position: relative;
+    font-weight: 600;
+}
+.card-time::before{
+    font-family: 'font awesome 5 Free';
+    content : '\f017';
+    margin-right: 10px;
+    font-weight: 500;
+}

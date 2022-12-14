@@ -5,10 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Petits Plats</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/82d5e7c8c4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
-    <script src="script.js"></script>
+    <header> 
+        <div class="logo-container">
+            <a id="logo-link" aria-label="Page d'accueil" href="index.html"><img id='logo-img' src="datas/assets/Logo les petits plats.png" alt="logo les petits plats"></a>
+        </div>
+    </header>
+    <main>
+        <section class="search-section">
+            <div class="searchbar-container">
+                <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher une recette"><i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="filtres-container">
+                <div class="filtre filtre-ingredient">
+                    <p id="ingredient">ingredients</p><i id="chevron-icon-filter" class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filtre filtre-appareil">
+                    <p  id="appareil">appareils</p><i id="chevron-icon-filter" class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filtre filtre-ustensile">
+                    <p  id="ustensile">ustensiles</p><i id="chevron-icon-filter" class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+        <section id="displayRecipes"></section>
+    </main>
+    <footer>
+        <!-- <p>All rights reserved. Ayoub E. for OPC</p> -->
+    </footer>
+    <script src="datas/recipes.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
