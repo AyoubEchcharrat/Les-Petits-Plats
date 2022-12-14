@@ -11,7 +11,8 @@ function searchbar() {
         const newRecipesList = []
 
         if (searchbar.value.length < 3) {
-            return
+            // eslint-disable-next-line no-undef
+            recipesCardHUB(recipes)
         } else {
             recipes.forEach(recipe => {
                 let name = recipe.name.toLowerCase() //recherche par nom
