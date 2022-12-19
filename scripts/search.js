@@ -1,5 +1,43 @@
+// eslint-disable-next-line no-unused-vars
+function filterByTag() {
+    const ingredientInupt = document.getElementById('ingredient')
+    const appareilInupt = document.getElementById('appareil')
+    const ustensileInupt = document.getElementById('ustensile')
 
+    const IngredientContainer = document.querySelector('.filtre-ingredient')
 
+    const ingredientsTag = document.getElementById('ingredientsTag')
+    // eslint-disable-next-line no-undef
+    const recipes = getRecipes()
+
+    function eventTagIngredient() {
+        const newIngredientsList = []
+        ingredientsTag.innerText = ''
+        if (ingredientInupt.value.length == 0) {
+            IngredientContainer.classList.remove('filtre-ingredient-open')
+        } else {
+            IngredientContainer.classList.add('filtre-ingredient-open')
+            recipes.forEach(recipe => {
+                recipe.ingredients.forEach(ingredient => {
+                    let Lowingredient = ingredient.ingredient.toLowerCase()
+                    if (Lowingredient.includes(ingredientInupt.value.toLowerCase())) {
+                        if (!newIngredientsList.includes(ingredient.ingredient)) {
+                            newIngredientsList.push(ingredient.ingredient)
+                        }
+                    }
+                });
+            });
+            newIngredientsList.forEach(element => {
+                let newEntry = document.createElement('p')
+                newEntry.classList.add('ingredient-tag')
+                newEntry.innerText = element
+                ingredientsTag.append(newEntry)
+            });
+        }
+    }
+
+    ingredientInupt.addEventListener('keyup', eventTagIngredient)
+}
 
 // eslint-disable-next-line no-unused-vars
 function searchbar() {

@@ -60,12 +60,12 @@ main{
 .filtre {
     margin-right: 10px;
     position: relative;
-}
-
-.filtre-ingredient,.filtre-appareil,.filtre-ustensile {
     padding: 15px 45px 15px 20px;
     border-radius: 7px;
-    color:white
+    color:white;
+    width:150px;
+    height: 53px;
+    transition: width .7s, height .7s;
 }
 .filtre-ingredient{
     background-color: #3282F7;
@@ -77,24 +77,33 @@ main{
     background-color: #ED6454;
 }
 
-#chevron-icon-filter{
+.chevron-icon-filter{
     position: absolute;
     right: 14px;
     top: 18px;
 }
+
+.filtre-ingredient-open{
+    width:700px;
+    height:400px;
+    transition: width .3s, height .3s;
+}
+
 
 /* ------------- FIN search ------------- */
 
 #displayRecipes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    width: calc(100% + 40px);
+    margin-left: -20px;
 }
 
 button.card-accessibilty {
-    width: 30%;
+    width: calc(33.33% - 40px);
     height: 360px;
-    margin-bottom: 60px;
+    margin: 20px;
 }
 
 .card-style {

@@ -114,6 +114,8 @@ function init() {
     recipesCardHUB(recipes)
     // eslint-disable-next-line no-undef
     searchbar()
+    // eslint-disable-next-line no-undef
+    filterByTag()
 }
 
 init()
