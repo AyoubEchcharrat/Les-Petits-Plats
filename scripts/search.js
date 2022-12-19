@@ -1,8 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 function filterByTag() {
     const ingredientInupt = document.getElementById('ingredient')
-    const appareilInupt = document.getElementById('appareil')
-    const ustensileInupt = document.getElementById('ustensile')
 
     const IngredientContainer = document.querySelector('.filtre-ingredient')
 
@@ -52,34 +50,32 @@ function searchbar() {
             // eslint-disable-next-line no-undef
             recipesCardHUB(recipes)
         } else {
-            recipes.forEach(recipe => {
-                let name = recipe.name.toLowerCase() //recherche par nom
-                let description = recipe.description.toLowerCase() //recherche par descr.
-
-                let ingredients = recipe.ingredients
-                ingredients.forEach(elem => {
-                    let ingredient = elem.ingredient.toLowerCase() //recherche par ingre.
+            for (let i = 0; i < recipes.length; i++) {
+                let name = recipes[i].name.toLowerCase() //recherche par nom
+                let description = recipes[i].description.toLowerCase() //recherche par descr.
+                let listIngredients = recipes[i].ingredients
+                for (let e = 0; e < listIngredients.length; e++) {
+                    let ingredient = listIngredients[e].ingredient.toLowerCase() //recherche par ingre.
+                    console.log(name)
                     if (name.includes(searchbar.value) || description.includes(searchbar.value) || ingredient.includes(searchbar.value)) {
                         if (newRecipesList.length === 0) {
-                            newRecipesList.push(recipe)
+                            newRecipesList.push(recipes[i])
                         } else {
-                            if (newRecipesList[newRecipesList.length - 1].name === recipe.name) {
-                                return
-                            } else {
-                                newRecipesList.push(recipe)
+                            if (newRecipesList[newRecipesList.length - 1].name !== recipes[i].name) {
+                                newRecipesList.push(recipes[i])
                                 // eslint-disable-next-line no-undef
                                 recipesCardHUB(newRecipesList)
+                                console.log(newRecipesList)
                             }
                         }
                     } else {
                         // eslint-disable-next-line no-undef
                         recipesCardHUB(newRecipesList)
                     }
-                });
-            });
+                }
+            }
         }
     }
-
     searchbar.addEventListener('keyup', eventSearchbar)
 
 }
