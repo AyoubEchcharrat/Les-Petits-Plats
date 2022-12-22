@@ -113,8 +113,6 @@ function init() {
     const recipes = getRecipes()
     recipesCardHUB(recipes)
     // eslint-disable-next-line no-undef
-    searchbar()
-    // eslint-disable-next-line no-undef
     filterByTag()
 }
 

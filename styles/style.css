@@ -24,6 +24,11 @@ main{
     height: 200px;
 }
 
+.displaynone{
+    display: none !important;
+}
+
+
 /* ------------- FIN général ------------- */
 
 /* ------------- search section ------------- */
@@ -32,11 +37,21 @@ main{
     position: relative;
 }
 
+.search-section {
+    height: 300px;
+    z-index: 2;
+    position: relative;
+}
+
 #searchbar {
     background-color: #ddd;
     width: 100%;
     padding: 33px;
     border-radius: 7px;
+}
+
+input::placeholder {
+    color:rgb(211, 211, 211)
 }
 
 #searchbar::placeholder {
@@ -66,7 +81,9 @@ main{
     width:150px;
     height: 53px;
     transition: width .7s, height .7s;
+    overflow: hidden;
 }
+
 .filtre-ingredient{
     background-color: #3282F7;
 }
@@ -79,16 +96,82 @@ main{
 
 .chevron-icon-filter{
     position: absolute;
-    right: 14px;
-    top: 18px;
+    top: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
 }
 
-.filtre-ingredient-open{
-    width:700px;
-    height:400px;
+.filtre-open{
+    width: max-content;
+    max-height: 400px;
+    height: max-content;
     transition: width .3s, height .3s;
 }
 
+#cover-ingredient,#cover-ustensile,#cover-appareil {
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: 7px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ingredient {
+    min-width: 180px;
+}
+
+.filtre-tag{
+    margin-top: 10px;
+    width: calc(100% - -32px);
+    height: calc(100% - 18px);
+    max-height: 347px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+}
+
+.tag-styles{
+    padding: 10px 0;
+    min-width: 165px;
+}
+
+.fa-chevron-down:before {
+    position: absolute;
+    right: 10px;
+    top: 19px;
+}
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .filtre-tag{
+    scrollbar-width: auto;
+    scrollbar-color: #1e69d9 #3282f7;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .filtre-tag::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .filtre-tag::-webkit-scrollbar-track {
+    background:#0000001f;
+    border-radius: 10px;
+  }
+
+  .filtre-tag::-webkit-scrollbar-thumb {
+    background-color: #00000045;
+    border-radius: 10px;
+    border: 0px none #ffffff;
+  }
 
 /* ------------- FIN search ------------- */
 
