@@ -148,7 +148,11 @@ input::placeholder {
     top: 19px;
 }
 
-
+.clickedTags{
+    position: absolute;
+    left: 0px;
+    top: -100px;
+}
 
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
