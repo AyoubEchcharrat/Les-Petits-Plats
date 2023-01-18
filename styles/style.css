@@ -54,6 +54,10 @@ input::placeholder {
     color:rgb(211, 211, 211)
 }
 
+input{
+    min-width: 190px;
+}
+
 #searchbar::placeholder {
     color:grey
 }
@@ -169,6 +173,7 @@ input::placeholder {
     position: absolute;
     right: 9px;
     top: 10px;
+    cursor: pointer;
 }
 
 .no-recipe-container{
