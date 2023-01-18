@@ -171,6 +171,14 @@ input::placeholder {
     top: 10px;
 }
 
+.no-recipe-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50px;
+}
+
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
   .filtre-tag{

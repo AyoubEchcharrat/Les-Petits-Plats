@@ -12,31 +12,31 @@
 <body>
     <header> 
         <div class="logo-container">
-            <a id="logo-link" aria-label="Page d'accueil" href="index.html"><img id='logo-img' src="datas/assets/Logo les petits plats.png" alt="logo les petits plats"></a>
+            <a id="logo-link" aria-label="Page d'accueil" href="index.html"><img id='logo-img' src="datas/assets/Logo_les_petits_plats.png" alt="logo les petits plats"></a>
         </div>
     </header>
     <main>
-        <section class="search-section">
+        <div class="search-section">
             <div class="searchbar-container">
                 <input type="text" name="searchbar" id="searchbar" placeholder="Rechercher une recette"><i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="filtres-container">
                 <div class="filtre filtre-ingredient">
-                    <input class="tag-Input" type="text"  id="ingredient-input" placeholder="Rechercher un ingredient"></input><div id="cover-ingredient" class="tag-cover"><p>Ingredients</p></div><i id="ingredient" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
+                    <input class="tag-Input" type="text"  id="ingredient-input" placeholder="Rechercher un ingredient"><div id="cover-ingredient" class="tag-cover"><p>Ingredients</p></div><i id="ingredient" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
                     <div id="ingredientsTag" class="filtre-tag"></div>
                 </div>
                 <div class="filtre filtre-appareil">
-                    <input class="tag-Input" type="text" id="appareil-input" placeholder="Rechercher un appareil"></input><div id="cover-appareil" class="tag-cover"><p>Appareils</p></div><i id="appareil" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
+                    <input class="tag-Input" type="text" id="appareil-input" placeholder="Rechercher un appareil"><div id="cover-appareil" class="tag-cover"><p>Appareils</p></div><i id="appareil" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
                     <div id="appareilsTag" class="filtre-tag"></div>
                 </div>
                 <div class="filtre filtre-ustensile">
-                    <input class="tag-Input" type="text" id="ustensile-input" placeholder="Rechercher un ustensile"></input><div id="cover-ustensile" class="tag-cover"><p>Ustensiles</p></div><i id="ustensile" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
+                    <input class="tag-Input" type="text" id="ustensile-input" placeholder="Rechercher un ustensile"><div id="cover-ustensile" class="tag-cover"><p>Ustensiles</p></div><i id="ustensile" class="chevron-icon-filter fa-solid fa-chevron-down"></i>
                     <div id="ustensilesTag" class="filtre-tag"></div>
                 </div>
                 <div class="clickedTags"></div>
             </div>
-        </section>
-        <section id="displayRecipes"></section>
+        </div>
+        <div id="displayRecipes"></div>
         <div class="no-recipe-container"><p class="no-recipe-text"></p></div>
     </main>
     <footer>
