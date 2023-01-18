@@ -88,6 +88,15 @@ function recipesCardFactory(recipe) {
 }
 
 async function recipesCardHUB(recipes) {
+
+    if (recipes.length === 0) {
+        const noRecipeText = document.querySelector('.no-recipe-text')
+        noRecipeText.innerText = ''
+        console.log('VOUS POUVEZ RECHERCHER ....')
+        noRecipeText.innerText = 'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc. '
+
+    }
+
     const recipesSection = document.getElementById('displayRecipes')
     recipesSection.innerText = ''
 
