@@ -335,7 +335,7 @@ function filterByTag() {
 
 
 
-/*        function eventSearchbarV2() {
+/*  function eventSearchbarV2() {
         if (searchbar.value.length <= 3) {
             newRecipesList = tagFilter(searchbarList)
             // eslint-disable-next-line no-undef
@@ -359,7 +359,7 @@ function filterByTag() {
         eventTagUstensile(newRecipesList)
     }  */
 
-/*     function searchbar() {
+/*  function searchbar() {
         const searchbar = document.getElementById('searchbar')
         // eslint-disable-next-line no-undef
         const recipes = getRecipes()
