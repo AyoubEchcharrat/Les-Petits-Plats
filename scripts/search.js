@@ -151,14 +151,14 @@ function filterByTag() {
             console.log(listTags)
 
             console.log(searchbar.value.length)
-            if (searchbar.value.length === 0) {
-                newRecipesList = tagFilter(newRecipesList)
-                // eslint-disable-next-line no-undef                
-                recipesCardHUB(newRecipesList)
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-            }
+
+            newRecipesList = tagFilter(newRecipesList)
+            // eslint-disable-next-line no-undef                
+            recipesCardHUB(newRecipesList)
+            eventTagIngredient(newRecipesList)
+            eventTagAppareil(newRecipesList)
+            eventTagUstensile(newRecipesList)
+
         }
         generateSpaceForTags()
     }
