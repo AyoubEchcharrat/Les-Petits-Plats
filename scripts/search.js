@@ -15,7 +15,8 @@ function filterByTag() {
     // eslint-disable-next-line no-undef 
     const recipes = getRecipes()
 
-    var newRecipesList = recipes
+    var newRecipesList = []
+    newRecipesList = newRecipesList.concat(recipes)
 
     var listTags = []
 
@@ -325,9 +326,9 @@ function filterByTag() {
             eventTagAppareil(newRecipesList)
             eventTagUstensile(newRecipesList)
         } */
-    //let goodList = []
-    function eventSearchbar() {
 
+    function eventSearchbar() {
+        let goodList = []
         if (searchbar.value.length < 3) {
             newRecipesList = recipes
             newRecipesList = tagFilter(searchbarList)
@@ -339,18 +340,33 @@ function filterByTag() {
             return
         } else {
             newRecipesList = recipes
-            newRecipesList.forEach(recipe => {
-                let name = recipe.name.toLowerCase() //recherche par nom
-                console.log(name)
-            });
-        }
+            for (let i = 0; i < newRecipesList.length; i++) {
+                let recipe = newRecipesList[i]
+                for (let j = 0; j < recipe.ingredients.length; j++) {
+                    let ingredient = recipe.ingredients[j].ingredient
+                    if (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
+                        || ingredient.toLowerCase().includes(searchbar.value.toLowerCase())) {
+                        if (goodList.length === 0) {
+                            console.log(recipe)
+                            goodList.push(recipe)
+                        } else {
+                            console.log(goodList[goodList.length - 1])
+                            if (recipe.id !== goodList[goodList.length - 1].id) {
+                                console.log(recipe)
+                                goodList.push(recipe)
+                            }
+                        }
 
-        newRecipesList = tagFilter(newRecipesList)
+                    }
+                }
+            }
+        }
+        newRecipesList = tagFilter(goodList)
         // eslint-disable-next-line no-undef
-        recipesCardHUB(newRecipesList)
-        eventTagIngredient(newRecipesList)
-        eventTagAppareil(newRecipesList)
-        eventTagUstensile(newRecipesList)
+        recipesCardHUB(goodList)
+        eventTagIngredient(goodList)
+        eventTagAppareil(goodList)
+        eventTagUstensile(goodList)
     }
 
 
