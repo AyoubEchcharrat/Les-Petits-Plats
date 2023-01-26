@@ -293,6 +293,68 @@ function filterByTag() {
 
 
 
+    /*     function eventSearchbarV2() {
+            if (searchbar.value.length <= 3) {
+                newRecipesList = tagFilter(searchbarList)
+                // eslint-disable-next-line no-undef
+                recipesCardHUB(newRecipesList)
+                eventTagIngredient(newRecipesList)
+                eventTagAppareil(newRecipesList)
+                eventTagUstensile(newRecipesList)
+                return
+            }
+            else {
+                newRecipesList = recipes
+                newRecipesList.forEach(element => {
+                    let newMap = element.ingredients.map(ingredient => ingredient.ingredient)
+                    console.log(newMap)
+                    newMap = newMap.filter(entree => {
+                        console.log(entree)
+                        return (entree.toLowerCase().includes(searchbar.value.toLowerCase()))
+                    })
+                    console.log(newMap)
+                });
+                newRecipesList = newRecipesList.filter(function (recipe) {
+                    return (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
+                        // || ingredient.ingredient.toLowerCase().includes(searchbar.value))
+                })
+            }
+            newRecipesList = tagFilter(newRecipesList)
+            // eslint-disable-next-line no-undef
+            recipesCardHUB(newRecipesList)
+            eventTagIngredient(newRecipesList)
+            eventTagAppareil(newRecipesList)
+            eventTagUstensile(newRecipesList)
+        } */
+
+
+
+
+    /*     function eventSearchbarV2() {
+        if (searchbar.value.length <= 3) {
+            newRecipesList = tagFilter(searchbarList)
+            // eslint-disable-next-line no-undef
+            recipesCardHUB(newRecipesList)
+            eventTagIngredient(newRecipesList)
+            eventTagAppareil(newRecipesList)
+            eventTagUstensile(newRecipesList)
+            return
+        }
+        else {
+            newRecipesList = recipes
+            newRecipesList = newRecipesList.filter(function (recipe) {
+                return (recipe.name.toLowerCase().includes(searchbar.value) || recipe.description.toLowerCase().includes(searchbar.value))
+            })
+        }
+        newRecipesList = tagFilter(newRecipesList)
+        // eslint-disable-next-line no-undef
+        recipesCardHUB(newRecipesList)
+        eventTagIngredient(newRecipesList)
+        eventTagAppareil(newRecipesList)
+        eventTagUstensile(newRecipesList)
+    } */
+
+
 
     ingredientChevron.addEventListener('click', toggleTagContainer)
     appareilChevron.addEventListener('click', toggleTagContainer)
