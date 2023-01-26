@@ -345,7 +345,8 @@ function filterByTag() {
                 for (let j = 0; j < recipe.ingredients.length; j++) {
                     let ingredient = recipe.ingredients[j].ingredient
                     if (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
-                        || ingredient.toLowerCase().includes(searchbar.value.toLowerCase())) {
+                        || ingredient.toLowerCase().includes(searchbar.value.toLowerCase())
+                        || recipe.description.toLowerCase().includes(searchbar.value.toLowerCase())) {
                         if (goodList.length === 0) {
                             console.log(recipe)
                             goodList.push(recipe)
