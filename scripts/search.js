@@ -267,6 +267,7 @@ function filterByTag() {
     }
 
 
+
     function eventSearchbarV2() {
         if (searchbar.value.length <= 3) {
             newRecipesList = tagFilter(searchbarList)
@@ -280,7 +281,14 @@ function filterByTag() {
         else {
             newRecipesList = recipes
             newRecipesList = newRecipesList.filter(function (recipe) {
-                return (recipe.name.toLowerCase().includes(searchbar.value) || recipe.description.toLowerCase().includes(searchbar.value))
+                let foundI = false
+                recipe.ingredients.forEach(ingredient => {
+                    if (ingredient.ingredient.toLowerCase().includes(searchbar.value)) {
+                        foundI = true
+                    }
+                })
+                return (foundI || recipe.name.toLowerCase().includes(searchbar.value)
+                    || recipe.description.toLowerCase().includes(searchbar.value))
             })
         }
         newRecipesList = tagFilter(newRecipesList)
@@ -434,3 +442,48 @@ function filterByTag() {
     }
     searchbar()  */
 
+
+/* ACTUAL WORKING FUNCTION
+ 
+function eventSearchbar() {
+    let goodList = []
+    if (searchbar.value.length < 3) {
+        newRecipesList = recipes
+        newRecipesList = tagFilter(searchbarList)
+        // eslint-disable-next-line no-undef
+        recipesCardHUB(newRecipesList)
+        eventTagIngredient(newRecipesList)
+        eventTagAppareil(newRecipesList)
+        eventTagUstensile(newRecipesList)
+        return
+    } else {
+        newRecipesList = recipes
+        for (let i = 0; i < newRecipesList.length; i++) {
+            let recipe = newRecipesList[i]
+            for (let j = 0; j < recipe.ingredients.length; j++) {
+                let ingredient = recipe.ingredients[j].ingredient
+                if (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
+                    || ingredient.toLowerCase().includes(searchbar.value.toLowerCase())
+                    || recipe.description.toLowerCase().includes(searchbar.value.toLowerCase())) {
+                    if (goodList.length === 0) {
+                        console.log(recipe)
+                        goodList.push(recipe)
+                    } else {
+                        console.log(goodList[goodList.length - 1])
+                        if (recipe.id !== goodList[goodList.length - 1].id) {
+                            console.log(recipe)
+                            goodList.push(recipe)
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    newRecipesList = tagFilter(goodList)
+    // eslint-disable-next-line no-undef
+    recipesCardHUB(goodList)
+    eventTagIngredient(goodList)
+    eventTagAppareil(goodList)
+    eventTagUstensile(goodList)
+} */
