@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 function filterByTag() {
+    //fonction centralisé de toutes les fonctions filtres
     const ingredientInupt = document.getElementById('ingredient-input')
     const appareilInupt = document.getElementById('appareil-input')
     const ustensileInupt = document.getElementById('ustensile-input')
@@ -113,6 +114,7 @@ function filterByTag() {
         }
     }
 
+    // au clique sur un filtre, construit l'icone cliquable qui sert de tag (ingredient, appareil et ustensile)
     function addTags(alt, id, type) {
         const clickedTagsContainer = document.querySelector('.clickedTags')
         var actualTags = document.querySelectorAll('.clicked-tag-parent')
@@ -163,6 +165,7 @@ function filterByTag() {
         generateSpaceForTags()
     }
 
+    // au clique sur un tag, le supprime
     function removeTags(elem, alt, id) {
         const elementToDelete = document.getElementById(id + 'Tag')
         elementToDelete.remove()
@@ -192,7 +195,7 @@ function filterByTag() {
         }
     }
 
-    //filtre par ingredient, appareils et ustensils, cliquables.
+    //ouvrir et fermer (toggle) les filtres par ingredient, appareils et ustensils
     function toggleTagContainer() {
         let id = this.id
         if (document.getElementById(id).classList.contains('tag-open')) {
@@ -211,31 +214,7 @@ function filterByTag() {
         }
     }
 
-
-    /* 
-        function toggleTagContainerV2(id) {
-            console.log(id)
-            let clickedFilter = document.getElementById(id)
-            let chevrons = document.querySelectorAll('.filtre')
-            let cover = document.querySelectorAll('.tag-cover')
-    
-            if (clickedFilter.classList.contains('tag-open')) {
-                chevrons.forEach(chevron => {
-                    chevron.classList.remove('tag-open')
-                    cover.classList.add('displaynone')
-                });
-            } else {
-                chevrons.forEach(chevron => {
-                    chevron.classList.remove('tag-open')
-                });
-                clickedFilter.classList.add('tag-open')
-                document.getElementById('cover-' + id).classList.remove('displaynone')
-            }
-        }
-     */
-
-
-
+    //génère les list correspondants aux filtres ouverts (les ingredients pour "ingredients", etc)
     function tagFilter(incomeRecipes) {
         if (listTags.length === 0) {
             return incomeRecipes
@@ -267,7 +246,7 @@ function filterByTag() {
     }
 
 
-
+    //fonction de recherche principale, s'active à 3 carctères entrés
     function eventSearchbarV2() {
         if (searchbar.value.length <= 3) {
             newRecipesList = tagFilter(searchbarList)
@@ -300,80 +279,9 @@ function filterByTag() {
     }
 
 
-
-    /*     function eventSearchbarV2() {
-            if (searchbar.value.length <= 3) {
-                newRecipesList = tagFilter(searchbarList)
-                // eslint-disable-next-line no-undef
-                recipesCardHUB(newRecipesList)
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-                return
-            }
-            else {
-                newRecipesList = recipes
-                newRecipesList.forEach(element => {
-                    let newMap = element.ingredients.map(ingredient => ingredient.ingredient)
-                    console.log(newMap)
-                    newMap = newMap.filter(entree => {
-                        console.log(entree)
-                        return (entree.toLowerCase().includes(searchbar.value.toLowerCase()))
-                    })
-                    console.log(newMap)
-                });
-                newRecipesList = newRecipesList.filter(function (recipe) {
-                    return (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
-                        // || ingredient.ingredient.toLowerCase().includes(searchbar.value))
-                })
-            }
-            newRecipesList = tagFilter(newRecipesList)
-            // eslint-disable-next-line no-undef
-            recipesCardHUB(newRecipesList)
-            eventTagIngredient(newRecipesList)
-            eventTagAppareil(newRecipesList)
-            eventTagUstensile(newRecipesList)
-        } */
-
-
-
-
-    /*     function eventSearchbarV2() {
-        if (searchbar.value.length <= 3) {
-            newRecipesList = tagFilter(searchbarList)
-            // eslint-disable-next-line no-undef
-            recipesCardHUB(newRecipesList)
-            eventTagIngredient(newRecipesList)
-            eventTagAppareil(newRecipesList)
-            eventTagUstensile(newRecipesList)
-            return
-        }
-        else {
-            newRecipesList = recipes
-            newRecipesList = newRecipesList.filter(function (recipe) {
-                return (recipe.name.toLowerCase().includes(searchbar.value) || recipe.description.toLowerCase().includes(searchbar.value))
-            })
-        }
-        newRecipesList = tagFilter(newRecipesList)
-        // eslint-disable-next-line no-undef
-        recipesCardHUB(newRecipesList)
-        eventTagIngredient(newRecipesList)
-        eventTagAppareil(newRecipesList)
-        eventTagUstensile(newRecipesList)
-    } */
-
-
-
     ingredientChevron.addEventListener('click', toggleTagContainer)
     appareilChevron.addEventListener('click', toggleTagContainer)
     ustensileChevron.addEventListener('click', toggleTagContainer)
-
-    /*     ingredientChevron.addEventListener('click', function () {
-            toggleTagContainerV2(this.id)
-        })
-        appareilChevron.addEventListener('click', function () {
-            toggleTagContainerV2(this.id)
-        }) */
 
     ingredientInupt.addEventListener('keyup', function () {
         eventTagIngredient(newRecipesList)
@@ -386,104 +294,3 @@ function filterByTag() {
     })
     searchbar.addEventListener('keyup', eventSearchbarV2)
 }
-
-
-
-
-
-
-
-/*     function searchbar() {
-        const searchbar = document.getElementById('searchbar')
-        // eslint-disable-next-line no-undef
-        const recipes = getRecipes()
- 
-        function eventSearchbar() {
-            let newRecipesList = []
-            if (searchbar.value.length < 3) {
-                newRecipesList = recipes
-                eventTagIngredient(recipes)
-                eventTagAppareil(recipes)
-                eventTagUstensile(recipes)
-                // eslint-disable-next-line no-undef
-                recipesCardHUB(recipes)
-            } else {
-                recipes.forEach(recipe => {
-                    let name = recipe.name.toLowerCase() //recherche par nom
-                    let description = recipe.description.toLowerCase() //recherche par descr.
- 
-                    let ingredients = recipe.ingredients
-                    ingredients.forEach(elem => {
-                        let ingredient = elem.ingredient.toLowerCase() //recherche par ingre.
-                        if (name.includes(searchbar.value) || description.includes(searchbar.value) || ingredient.includes(searchbar.value)) {
-                            if (newRecipesList.length === 0) {
-                                newRecipesList.push(recipe)
-                            } else {
-                                if (newRecipesList[newRecipesList.length - 1].name === recipe.name) {
-                                    return
-                                } else {
-                                    newRecipesList.push(recipe)
-                                    // eslint-disable-next-line no-undef
-                                    recipesCardHUB(newRecipesList)
-                                }
-                            }
-                        } else {
-                            // eslint-disable-next-line no-undef
-                            recipesCardHUB(newRecipesList)
-                        }
-                    });
-                });
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-            }
-        }
-        searchbar.addEventListener('keyup', eventSearchbar)
-    }
-    searchbar()  */
-
-
-/* ACTUAL WORKING FUNCTION
- 
-function eventSearchbar() {
-    let goodList = []
-    if (searchbar.value.length < 3) {
-        newRecipesList = recipes
-        newRecipesList = tagFilter(searchbarList)
-        // eslint-disable-next-line no-undef
-        recipesCardHUB(newRecipesList)
-        eventTagIngredient(newRecipesList)
-        eventTagAppareil(newRecipesList)
-        eventTagUstensile(newRecipesList)
-        return
-    } else {
-        newRecipesList = recipes
-        for (let i = 0; i < newRecipesList.length; i++) {
-            let recipe = newRecipesList[i]
-            for (let j = 0; j < recipe.ingredients.length; j++) {
-                let ingredient = recipe.ingredients[j].ingredient
-                if (recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
-                    || ingredient.toLowerCase().includes(searchbar.value.toLowerCase())
-                    || recipe.description.toLowerCase().includes(searchbar.value.toLowerCase())) {
-                    if (goodList.length === 0) {
-                        console.log(recipe)
-                        goodList.push(recipe)
-                    } else {
-                        console.log(goodList[goodList.length - 1])
-                        if (recipe.id !== goodList[goodList.length - 1].id) {
-                            console.log(recipe)
-                            goodList.push(recipe)
-                        }
-                    }
-
-                }
-            }
-        }
-    }
-    newRecipesList = tagFilter(goodList)
-    // eslint-disable-next-line no-undef
-    recipesCardHUB(goodList)
-    eventTagIngredient(goodList)
-    eventTagAppareil(goodList)
-    eventTagUstensile(goodList)
-} */
