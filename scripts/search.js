@@ -212,31 +212,6 @@ function filterByTag() {
         }
     }
 
-
-    /* 
-        function toggleTagContainerV2(id) {
-            console.log(id)
-            let clickedFilter = document.getElementById(id)
-            let chevrons = document.querySelectorAll('.filtre')
-            let cover = document.querySelectorAll('.tag-cover')
-    
-            if (clickedFilter.classList.contains('tag-open')) {
-                chevrons.forEach(chevron => {
-                    chevron.classList.remove('tag-open')
-                    cover.classList.add('displaynone')
-                });
-            } else {
-                chevrons.forEach(chevron => {
-                    chevron.classList.remove('tag-open')
-                });
-                clickedFilter.classList.add('tag-open')
-                document.getElementById('cover-' + id).classList.remove('displaynone')
-            }
-        }
-     */
-
-
-
     function tagFilter(incomeRecipes) {
         if (listTags.length === 0) {
             return incomeRecipes
@@ -266,66 +241,6 @@ function filterByTag() {
             return newRecipesList
         }
     }
-
-
-    /*  function eventSearchbarV2() {
-            if (searchbar.value.length <= 3) {
-                newRecipesList = tagFilter(searchbarList)
-                // eslint-disable-next-line no-undef
-                recipesCardHUB(newRecipesList)
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-                return
-            }
-            else {
-                newRecipesList = recipes
-                newRecipesList = newRecipesList.filter(function (recipe) {
-                    return (recipe.name.toLowerCase().includes(searchbar.value) || recipe.description.toLowerCase().includes(searchbar.value))
-                })
-            }
-            newRecipesList = tagFilter(newRecipesList)
-            // eslint-disable-next-line no-undef
-            recipesCardHUB(newRecipesList)
-            eventTagIngredient(newRecipesList)
-            eventTagAppareil(newRecipesList)
-            eventTagUstensile(newRecipesList)
-        }  */
-
-    /*     function eventSearchbar() {
-            if (searchbar.value.length < 3) {
-                newRecipesList = recipes
-                newRecipesList = tagFilter(searchbarList)
-                // eslint-disable-next-line no-undef
-                recipesCardHUB(newRecipesList)
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-                return
-            } else {
-                newRecipesList = recipes
-                newRecipesList.forEach(recipe => {
-                    let name = recipe.name.toLowerCase() //recherche par nom
-                    let description = recipe.description.toLowerCase() //recherche par descr.
-    
-                    let ingredients = recipe.ingredients
-                    ingredients.forEach(elem => {
-                        let ingredient = elem.ingredient.toLowerCase() //recherche par ingre.
-                        if (!name.includes(searchbar.value.toLowerCase()) || !description.includes(searchbar.value.toLowerCase()) || !ingredient.includes(searchbar.value.toLowerCase())) {
-                            const index = newRecipesList.indexOf(recipe)
-                            newRecipesList.splice(index, 1)
-                        }
-    
-                    });
-                });
-            }
-            newRecipesList = tagFilter(newRecipesList)
-            // eslint-disable-next-line no-undef
-            recipesCardHUB(newRecipesList)
-            eventTagIngredient(newRecipesList)
-            eventTagAppareil(newRecipesList)
-            eventTagUstensile(newRecipesList)
-        } */
 
     function eventSearchbar() {
         let goodList = []
@@ -395,81 +310,5 @@ function filterByTag() {
     //searchbar.addEventListener('keyup', eventSearchbarV2)
 }
 
-
-
-
-
-
-
-/*  function eventSearchbarV2() {
-        if (searchbar.value.length <= 3) {
-            newRecipesList = tagFilter(searchbarList)
-            // eslint-disable-next-line no-undef
-            recipesCardHUB(newRecipesList)
-            eventTagIngredient(newRecipesList)
-            eventTagAppareil(newRecipesList)
-            eventTagUstensile(newRecipesList)
-            return
-        }
-        else {
-            newRecipesList = recipes
-            newRecipesList = newRecipesList.filter(function (recipe) {
-                return (recipe.name.toLowerCase().includes(searchbar.value) || recipe.description.toLowerCase().includes(searchbar.value))
-            })
-        }
-        newRecipesList = tagFilter(newRecipesList)
-        // eslint-disable-next-line no-undef
-        recipesCardHUB(newRecipesList)
-        eventTagIngredient(newRecipesList)
-        eventTagAppareil(newRecipesList)
-        eventTagUstensile(newRecipesList)
-    }  */
-
-/*  function searchbar() {
-        const searchbar = document.getElementById('searchbar')
-        // eslint-disable-next-line no-undef
-        const recipes = getRecipes()
- 
-        function eventSearchbar() {
-            let newRecipesList = []
-            if (searchbar.value.length < 3) {
-                newRecipesList = recipes
-                eventTagIngredient(recipes)
-                eventTagAppareil(recipes)
-                eventTagUstensile(recipes)
-                // eslint-disable-next-line no-undef
-                recipesCardHUB(recipes)
-            } else {
-                recipes.forEach(recipe => {
-                    let name = recipe.name.toLowerCase() //recherche par nom
-                    let description = recipe.description.toLowerCase() //recherche par descr.
- 
-                    let ingredients = recipe.ingredients
-                    ingredients.forEach(elem => {
-                        let ingredient = elem.ingredient.toLowerCase() //recherche par ingre.
-                        if (name.includes(searchbar.value) || description.includes(searchbar.value) || ingredient.includes(searchbar.value)) {
-                            if (newRecipesList.length === 0) {
-                                newRecipesList.push(recipe)
-                            } else {
-                                if (newRecipesList[newRecipesList.length - 1].name === recipe.name) {
-                                    return
-                                } else {
-                                    newRecipesList.push(recipe)
-                                    // eslint-disable-next-line no-undef
-                                    recipesCardHUB(newRecipesList)
-                                }
-                            }
-                        } else {
-                            // eslint-disable-next-line no-undef
-                            recipesCardHUB(newRecipesList)
-                        }
-                    });
-                });
-                eventTagIngredient(newRecipesList)
-                eventTagAppareil(newRecipesList)
-                eventTagUstensile(newRecipesList)
-            }
-        }
-        searchbar.addEventListener('keyup', eventSearchbar)
-    }
-    searchbar()  */
+// livrable 'option 1" et option2 pour le nom des branches
+// corriger lowercase sur main
