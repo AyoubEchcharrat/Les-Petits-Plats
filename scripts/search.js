@@ -262,12 +262,12 @@ function filterByTag() {
             newRecipesList = newRecipesList.filter(function (recipe) {
                 let foundI = false
                 recipe.ingredients.forEach(ingredient => {
-                    if (ingredient.ingredient.toLowerCase().includes(searchbar.value)) {
+                    if (ingredient.ingredient.toLowerCase().includes(searchbar.value.toLowerCase())) {
                         foundI = true
                     }
                 })
-                return (foundI || recipe.name.toLowerCase().includes(searchbar.value)
-                    || recipe.description.toLowerCase().includes(searchbar.value))
+                return (foundI || recipe.name.toLowerCase().includes(searchbar.value.toLowerCase())
+                    || recipe.description.toLowerCase().includes(searchbar.value.toLowerCase()))
             })
         }
         newRecipesList = tagFilter(newRecipesList)
